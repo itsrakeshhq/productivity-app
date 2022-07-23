@@ -1,0 +1,43 @@
+.app {
+  margin: 5% 10%;
+}
+
+.app-header h1 {
+  text-align: center;
+}
+
+.app-header form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-header form div {
+  margin: 10px;
+  display: inline-block;
+  align-self: center;
+}
+
+.app-header form input {
+  margin: 0 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  width: 200px;
+}
+
+.app-header form input:focus {
+  outline: none;
+  border-bottom: 2px solid #5800ff;
+}
+
+.app-header form button {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 200px;
+  cursor: pointer;
+  background-color: #5800ff;
+  color: #fff;
+}
