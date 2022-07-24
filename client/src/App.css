@@ -1,3 +1,12 @@
+body {
+  background-image: linear-gradient(
+    83.2deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
+  );
+  color: #fff;
+}
+
 .app {
   margin: 5% 10%;
 }
@@ -24,6 +33,8 @@
   border: none;
   border-bottom: 2px solid #ccc;
   width: 200px;
+  background: transparent;
+  color: #fff;
 }
 
 .app-header form input:focus {
@@ -34,10 +45,14 @@
 .app-header form button {
   margin: 10px;
   padding: 5px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 3px;
   width: 200px;
   cursor: pointer;
-  background-color: #5800ff;
+  background-image: linear-gradient(
+    102.4deg,
+    rgba(253, 189, 85, 1) 7.8%,
+    rgba(249, 131, 255, 1) 100.3%
+  );
   color: #fff;
 }
