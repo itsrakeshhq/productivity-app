@@ -6,6 +6,7 @@ const ActivityRouter = require("./routes/activity.route");
 
 const app = express();
 
+/* Loading the environment variables from the .env file. */
 require("dotenv").config();
 
 const PORT = process.env.PORT || 5000;
