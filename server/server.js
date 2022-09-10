@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const ActivityRouter = require("./routes/activity.route");
+const AuthRouter = require("./routes/auth.route");
 
 const app = express();
 
@@ -27,6 +28,9 @@ app.get("/", (req, res) => {
 
 /* Telling the application to use the ActivityRouter for any requests that start with "/api". */
 app.use("/api", ActivityRouter);
+
+/* Telling the application to use the AuthRouter for any requests that start with "/api/auth". */
+app.use("/api/auth", AuthRouter);
 
 /* Connecting to the database and then starting the server. */
 mongoose
