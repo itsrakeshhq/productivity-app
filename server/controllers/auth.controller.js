@@ -12,10 +12,11 @@ const PASSWORD = process.env.PASSWORD;
  * @returns a function.
  */
 const login = (req, res) => {
+  /* Destructuring the email and password from the request body. */
   const { email, password } = req.body;
-  console.log(email, password);
-  console.log(EMAIL, PASSWORD);
+
   if (email === EMAIL && password === PASSWORD) {
+    /* Creating a token. */
     const token = jwt.sign({ email }, process.env.TOKEN_KEY, {
       expiresIn: "2h",
     });
