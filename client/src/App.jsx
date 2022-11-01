@@ -54,7 +54,7 @@ const App = () => {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Productivity Tracker</h1>
+        <h1 data-testid="app-header-heading">Productivity Tracker</h1>
         <form onSubmit={addActivity}>
           <div>
             <label htmlFor="activity">Activity:</label>
@@ -63,13 +63,22 @@ const App = () => {
               id="activity"
               name="activity"
               autoComplete="off"
+              data-testid={"activity-name-input"}
             />
           </div>
           <div>
             <label htmlFor="time">Time Taken:</label>
-            <input type="text" id="time" name="time" autoComplete="off" />
+            <input
+              type="text"
+              id="time"
+              name="time"
+              autoComplete="off"
+              data-testid="activity-duration-input"
+            />
           </div>
-          <button type="submit">Add</button>
+          <button type="submit" data-testid="activity-add-button">
+            Add
+          </button>
         </form>
       </header>
       <main className="app-main">
