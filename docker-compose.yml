@@ -1,0 +1,28 @@
+# The version of the docker-compose.
+version: "3.8"
+# Telling docker-compose to build the client and server images and run them in containers.
+services:
+  client:
+    # Telling docker-compose to build the client image using the Dockerfile in the client directory.
+    build: ./client
+    # Giving the container a name.
+    container_name: clientapp_c
+    # Mapping the port 3000 on the host machine to the port 3000 on the container.
+    ports:
+      - "3000:3000"
+    # Mapping the client directory on the host machine to the /app directory on the container.
+    volumes:
+      - ./client:/app
+      - ./app/node_modules
+    # Allows you to run container in detached mode.
+    stdin_open: true
+    tty: true
+  server:
+    # Telling docker-compose to build the client image using the Dockerfile in the server directory.
+    build: ./server
+    container_name: serverapp_c
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app
+      - ./app/node_modules

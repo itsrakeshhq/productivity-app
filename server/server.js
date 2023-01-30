@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const app = express();
+const app = require("./app");
 
 /* Loading the environment variables from the .env file. */
 require("dotenv").config();
