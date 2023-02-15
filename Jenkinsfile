@@ -12,7 +12,7 @@ pipeline {
             steps {
                 dir('client') {
                     sh 'npm install'
-                    sh 'npm test'
+                    sh 'npm run test'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 dir('server') {
                     sh 'npm install'
-                    sh 'npm test'
+                    sh 'npm run test'
                 }
             }
         }
