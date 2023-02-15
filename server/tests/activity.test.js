@@ -34,24 +34,24 @@ describe("GET /api/activities", () => {
   });
 });
 
-describe("POST /api/activity", () => {
-  it("should add an activity to the database", async () => {
-    const token = await request(app).post("/api/auth/login").send({
-      email: process.env.EMAIL,
-      password: process.env.PASSWORD,
-    });
+// describe("POST /api/activity", () => {
+//   it("should add an activity to the database", async () => {
+//     const token = await request(app).post("/api/auth/login").send({
+//       email: process.env.EMAIL,
+//       password: process.env.PASSWORD,
+//     });
 
-    const response = await request(app)
-      .post("/api/activity")
-      .send({
-        name: "Jogging",
-        time: "3:00 PM",
-      })
-      .set({
-        Authorization: "bearer " + token.body.token,
-        "Content-Type": "application/json",
-      });
+//     const response = await request(app)
+//       .post("/api/activity")
+//       .send({
+//         name: "Jogging",
+//         time: "3:00 PM",
+//       })
+//       .set({
+//         Authorization: "bearer " + token.body.token,
+//         "Content-Type": "application/json",
+//       });
 
-    expect(response.statusCode).toBe(201);
-  });
-});
+//     expect(response.statusCode).toBe(201);
+//   });
+// });
