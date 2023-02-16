@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs '18.14.0',
-        docker 'latest'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -22,18 +17,18 @@ pipeline {
             }
         }
 
-        // stage('Server Tests') {
-        //     steps {
-        //         dir('server') {
-        //             sh "export MONGODB_URI=${env.MONGODB_URI}"
-        //             sh "export TOKEN_KEY=${env.TOKEN_KEY}"
-        //             sh "export EMAIL=${env.EMAIL}"
-        //             sh "export PASSWORD=${env.PASSWORD}"
-        //             sh 'npm install'
-        //             sh 'npm run test'
-        //         }
-        //     }
-        // }
+        stage('Server Tests') {
+            steps {
+                dir('server') {
+                    sh "export MONGODB_URI=${env.MONGODB_URI}"
+                    sh "export TOKEN_KEY=${env.TOKEN_KEY}"
+                    sh "export EMAIL=${env.EMAIL}"
+                    sh "export PASSWORD=${env.PASSWORD}"
+                    sh 'npm install'
+                    sh 'npm run test'
+                }
+            }
+        }
 
         stage('Build Client Docker Image') {
             steps {
