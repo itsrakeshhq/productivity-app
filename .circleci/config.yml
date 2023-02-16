@@ -1,0 +1,44 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@4.7
+  docker: circleci/docker@1.1.8
+
+jobs:
+  build:
+    working_directory: ~/project
+    steps:
+      - checkout:
+          path: ~/project
+          persist_to_workspace: true
+      - run:
+          name: Install and test client
+          command: |
+            cd ~/project/client
+            npm install
+            npm run test
+      - run:
+          name: Install and test server
+          command: |
+            cd ~/project/server
+            npm install
+            npm run test
+      - run:
+          name: Build and push client image
+          command: |
+            cd ~/project/client
+            docker build -t rakeshpotnuru/productivity-app:client .
+            echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
+            docker push rakeshpotnuru/productivity-app:client
+      - run:
+          name: Build and push server image
+          command: |
+            cd ~/project/server
+            docker build -t rakeshpotnuru/productivity-app:server .
+            echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USER --password-stdin
+            docker push rakeshpotnuru/productivity-app:server
+
+workflows:
+  build:
+    jobs:
+      - build
