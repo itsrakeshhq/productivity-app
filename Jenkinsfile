@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:14-alpine'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     stages {
         stage('Checkout') {
