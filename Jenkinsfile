@@ -25,6 +25,9 @@ pipeline {
             steps {
                 dir('server') {
                     sh "export MONGODB_URI=${env.MONGODB_URI}"
+                    sh "export TOKEN_KEY=${env.TOKEN_KEY}"
+                    sh "export EMAIL=${env.EMAIL}"
+                    sh "export PASSWORD=${env.PASSWORD}"
                     sh 'npm install'
                     sh 'npm run test'
                 }
