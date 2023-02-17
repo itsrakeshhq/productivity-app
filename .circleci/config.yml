@@ -15,21 +15,17 @@ jobs:
           persist_to_workspace: true
           fetch_depth: 1
 
-      - node/install-packages:
-          path: ~/project/client
+      - node/test:
+            pkg-manager: npm 
+            resource_class: large 
+            test-results-for: jest 
+            app-dir: ~/project/client 
 
-      - node/run:
-          name: Run client tests
-          command: npm run test
-          working_directory: ~/project/client
-
-      - node/install-packages:
-          path: ~/project/server
-
-      - node/run:
-          name: Run server tests
-          command: npm run test
-          working_directory: ~/project/server
+      - node/test:
+            pkg-manager: npm 
+            resource_class: large 
+            test-results-for: jest 
+            app-dir: ~/project/server 
 
       - docker/build:
           context: ./client
