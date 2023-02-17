@@ -17,6 +17,14 @@ jobs:
           npm install
           npm run test
 
+      - name: create env file
+        run: |
+          touch .env
+          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
+          echo TOKEN_KEY=${{ secrets.TOKEN_KEY }} >> .env
+          echo EMAIL=${{ secrets.EMAIL }} >> .env
+          echo PASSWORD=${{ secrets.PASSWORD }} >> .env
+
       - name: Install and Test Server
         working-directory: ./server
         run: |
