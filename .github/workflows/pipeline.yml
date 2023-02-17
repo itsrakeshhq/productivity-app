@@ -67,5 +67,5 @@ jobs:
       # Push the Docker images to Docker Hub
       - name: Push Docker Images to Docker Hub
         run: |
-          docker push rakeshpotnuru/productivity-app:client
-          docker push rakeshpotnuru/productivity-app:server
+          docker push rakeshpotnuru/productivity-app:client-${{github.run_number}}
+          docker push rakeshpotnuru/productivity-app:server-${{github.run_number}}
