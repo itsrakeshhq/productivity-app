@@ -1,8 +1,15 @@
 name: Build and Deploy
+
 on:
   push:
     branches:
       - main
+
+env:
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  TOKEN_KEY: ${{ secrets.TOKEN_KEY }}
+  EMAIL: ${{ secrets.EMAIL }}
+  PASSWORD: ${{ secrets.PASSWORD }}
 
 jobs:
   build-and-deploy:
@@ -17,18 +24,14 @@ jobs:
           npm install
           npm run test
 
-      - name: create env file
-        run: |
-          touch .env
-          echo MONGODB_URI=${{ secrets.MONGODB_URI }} >> .env
-          echo TOKEN_KEY=${{ secrets.TOKEN_KEY }} >> .env
-          echo EMAIL=${{ secrets.EMAIL }} >> .env
-          echo PASSWORD=${{ secrets.PASSWORD }} >> .env
-
       - name: Install and Test Server
         working-directory: ./server
         run: |
           npm install
+          export MONGODB_URI=$MONGODB_URI
+          export TOKEN_KEY=$TOKEN_KEY
+          export EMAIL=$EMAIL
+          export PASSWORD=$PASSWORD
           npm run test
 
       - name: Build Client Docker Image
