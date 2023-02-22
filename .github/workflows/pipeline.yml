@@ -25,22 +25,22 @@ jobs:
         uses: actions/checkout@v3
 
       # Install dependencies and run tests for the client application
-      # - name: Install and Test Client
-      #   working-directory: ./client
-      #   run: |
-      #     npm install
-      #     npm run test
+      - name: Install and Test Client
+        working-directory: ./client
+        run: |
+          npm install
+          npm run test
 
       # Install dependencies, export environment variables to be used by application and run tests for the server application
-      # - name: Install and Test Server
-      #   working-directory: ./server
-      #   run: |
-      #     npm install
-      #     export MONGODB_URI=$MONGODB_URI
-      #     export TOKEN_KEY=$TOKEN_KEY
-      #     export EMAIL=$EMAIL
-      #     export PASSWORD=$PASSWORD
-      #     npm run test
+      - name: Install and Test Server
+        working-directory: ./server
+        run: |
+          npm install
+          export MONGODB_URI=$MONGODB_URI
+          export TOKEN_KEY=$TOKEN_KEY
+          export EMAIL=$EMAIL
+          export PASSWORD=$PASSWORD
+          npm run test
 
       # Build a Docker image for the client application
       - name: Build Client Docker Image
