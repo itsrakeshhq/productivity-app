@@ -86,6 +86,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: ${{ secrets.EB_APP_NAME }}
           environment_name: ${{ secrets.EB_ENV_NAME }}
-          version_label: ${{ github.sha }}
+          version_label: ${{ secrets.EB_VERSION_LABEL }}
           region: ${{ secrets.EB_REGION }}
           deployment_package: docker-compose.yml
