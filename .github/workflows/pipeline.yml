@@ -47,7 +47,7 @@ jobs:
         working-directory: ./client
         # Build image with tag rakeshpotnuru/productivity-app:client
         run: |
-          docker build -t rakeshpotnuru/productivity-app:client-${{github.run_number}} .
+          docker build -t rakeshpotnuru/productivity-app:client-${{github.run_number}} -t rakeshpotnuru/productivity-app:client-latest .
 
       # Build a Docker image for the server application
       - name: Build Server Docker Image
@@ -55,14 +55,14 @@ jobs:
           ./server
           # Build image with tag rakeshpotnuru/productivity-app:server
         run: |
-          docker build -t rakeshpotnuru/productivity-app:server-${{github.run_number}} .
+          docker build -t rakeshpotnuru/productivity-app:server-${{github.run_number}} -t rakeshpotnuru/productivity-app:server-latest .
 
       # Build a Docker image for the NGINX reverse proxy
       - name: Build NGINX Docker Image
         working-directory: ./nginx
         # Build image with tag rakeshpotnuru/productivity-app:nginx
         run: |
-          docker build -t rakeshpotnuru/productivity-app:nginx-${{github.run_number}} .
+          docker build -t rakeshpotnuru/productivity-app:nginx-${{github.run_number}} -t rakeshpotnuru/productivity-app:nginx-latest .
 
       # Log in to Docker Hub using credentials from repository secrets
       - name: Log in to Docker Hub
@@ -77,6 +77,9 @@ jobs:
           docker push rakeshpotnuru/productivity-app:client-${{github.run_number}}
           docker push rakeshpotnuru/productivity-app:server-${{github.run_number}}
           docker push rakeshpotnuru/productivity-app:nginx-${{github.run_number}}
+          docker push rakeshpotnuru/productivity-app:client-latest
+          docker push rakeshpotnuru/productivity-app:server-latest
+          docker push rakeshpotnuru/productivity-app:nginx-latest
 
       # This is the step that is deploying the application to Elastic Beanstalk.
       - name: Deploy to Elastic Beanstalk
