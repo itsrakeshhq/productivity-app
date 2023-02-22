@@ -88,4 +88,5 @@ jobs:
           environment_name: ${{ secrets.EB_ENV_NAME }}
           version_label: ${{ secrets.EB_VERSION_LABEL }}
           region: ${{ secrets.EB_REGION }}
+          use_existing_version_if_available: true
           deployment_package: docker-compose.yml
