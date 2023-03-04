@@ -7,3 +7,4 @@
 - Part 3 - [How to write tests in full-stack MERN web application](https://blog.itsrakesh.co/how-to-write-tests-in-full-stack-mern-web-application)
 - Part 4 - [Dockerizing Your MERN Stack App: A Step-by-Step Guide](https://blog.itsrakesh.co/dockerizing-your-mern-stack-app-a-step-by-step-guide)
 - Part 5 - [Automate MERN App Deployment with GitHub Actions CI/CD](https://blog.itsrakesh.co/automate-mern-app-deployment-with-github-actions-cicd)
+- Part 6 - [Deploying a MERN App to AWS Elastic Beanstalk with CI/CD](https://blog.itsrakesh.co/deploying-a-mern-app-to-aws-elastic-beanstalk-with-cicd)
