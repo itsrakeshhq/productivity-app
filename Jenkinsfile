@@ -33,8 +33,8 @@ pipeline {
 
     stage('Build Images') {
       steps {
-        sh 'docker build -t rakeshpotnuru/productivity-app:client-latest client'
-        sh 'docker build -t rakeshpotnuru/productivity-app:server-latest server'
+        sh 'docker build -t rafeh/productivity-app:client-latest client'
+        sh 'docker build -t rafeh/productivity-app:server-latest server'
       }
     }
 
