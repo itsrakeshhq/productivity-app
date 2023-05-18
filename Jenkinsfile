@@ -31,23 +31,23 @@ pipeline {
       }
     }
 
-    stage('Build Images') {
-      steps {
-        sh 'docker build -t rafeh/productivity-app:client-latest client'
-        sh 'docker build -t rafeh/productivity-app:server-latest server'
-      }
-    }
+//     stage('Build Images') {
+//       steps {
+//         sh 'docker build -t rafeh/productivity-app:client-latest client'
+//         sh 'docker build -t rafeh/productivity-app:server-latest server'
+//       }
+//     }
 
-    stage('Push Images to DockerHub') {
-      steps {
-        withCredentials(bindings: [usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-          sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
-          sh 'docker push rakeshpotnuru/productivity-app:client-latest'
-          sh 'docker push rakeshpotnuru/productivity-app:server-latest'
-        }
+//     stage('Push Images to DockerHub') {
+//       steps {
+//         withCredentials(bindings: [usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+//           sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+//           sh 'docker push rakeshpotnuru/productivity-app:client-latest'
+//           sh 'docker push rakeshpotnuru/productivity-app:server-latest'
+//         }
 
-      }
-    }
+//       }
+//     }
 
   }
   environment {
