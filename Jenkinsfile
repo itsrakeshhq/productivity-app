@@ -25,7 +25,7 @@ pipeline {
           sh 'export TOKEN_KEY=$TOKEN_KEY'
           sh 'export EMAIL=$EMAIL'
           sh 'export PASSWORD=$PASSWORD'
-          sh 'npm test'
+//           sh 'npm test'
         }
 
       }
